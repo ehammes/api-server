@@ -14,6 +14,7 @@ afterAll(async () => {
 });
 
 let pet = {
+  id: 1,
   name: 'test',
   breed: 'labrador',
   age: 4,
@@ -35,12 +36,18 @@ describe('Testing REST API', () => {
     let response = await mockRequest.get('/pets');
     
     expect(response.status).toEqual(200);
+    expect(response.body.name).toEqual('test');
+    expect(response.body.breed).toEqual('labrador');
+    expect(response.body.age).toEqual(4);
   });
 
   test('Should get a pet', async () => {
     let response = await mockRequest.get(`/pets/1`);
 
     expect(response.status).toEqual(200);
+    expect(response.body.name).toEqual('test');
+    expect(response.body.breed).toEqual('labrador');
+    expect(response.body.age).toEqual(4);
   });
 
   test('Should update a pet', async () => {

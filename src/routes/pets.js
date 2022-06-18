@@ -31,7 +31,8 @@ router.get('/pets/:id', async (req, res, next) => {
 // UPDATE Pet ****Need to revisit this Lab 04
 router.put('/pets/:id', async (req, res, next) => {
   let { id } = req.params;
-  let updatePets = await petsInterface.update(id);
+  // let data = req.body;
+  let updatePets = await petsInterface.update(req.body, id);
   res.status(200).send(updatePets);
 });
 

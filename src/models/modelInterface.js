@@ -36,12 +36,11 @@ class modelInterface {
     }
   }
   
-  // ****Need to revisit this Lab 04
-  async update(id) {
+  async update(data, id) {
     try {
-    let updateInstances = await this.model.findOne({ where: { id } });
-    await this.model.update({where: { id }});
-    return updateInstances;
+      await this.model.update(data, {where: { id }});
+      let updateInstances = await this.model.findOne({where: { id }});
+      return updateInstances;
     } catch (err) {
       console.error(err);
       return err;
@@ -50,8 +49,8 @@ class modelInterface {
 
   async delete(id) {
     try {
-    let deletedInstance = await this.model.findOne({where: { id }});
-    await this.model.destroy({where: { id }});
+    let deletedInstance = await this.model.findOne({ where: { id } });
+    await this.model.destroy( { where: { id } });
     return deletedInstance;
     } catch (err) {
       console.error(err);
