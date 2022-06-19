@@ -11,7 +11,7 @@ Building a basic api server
 ### Links and Resources
 
 - [ci/cd](https://github.com/ehammes/api-server/actions) (GitHub Actions)
-- [back-end server url Prod]() (Heroku prod)
+- [back-end server url Prod](https://cf-04-api-server-prod.herokuapp.com/) (Heroku prod)
 
 ### Setup
 
