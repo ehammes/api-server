@@ -11,16 +11,14 @@ const DATABASE_URL = process.env.NODE_ENV === 'test'
   : process.env.DATABASE_URL || 'postgres://localhost:5432/401d47-api-server';
 
 // Connection to Database
-const sequelize = new Sequelize(DATABASE_URL)
-  
-//   {
-//   dialectOptions: {
-//     ssl: {
-//       require: true,
-//       rejectUnauthorized: false,
-//     },
-//   },
-// });
+const sequelize = new Sequelize(DATABASE_URL, {
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false,
+    },
+  },
+});
 
 // Create Pet Model
 const PetsSchema = petsSchema(sequelize, DataTypes);
